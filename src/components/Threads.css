@@ -1,0 +1,21 @@
+/* Threads.css */
+
+/* Threads container styles */
+.threads-container {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: transparent;
+  display: block;
+}
+
+/* Remove any potential canvas styling from CSS since we're handling it in JS */
+.threads-container canvas {
+  display: block;
+}
