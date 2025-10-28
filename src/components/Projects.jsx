@@ -47,59 +47,46 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-16 md:py-20">
       <div className="container mx-auto px-4">
         
         {/* Section Header */}
-        <div className="text-center mb-16 fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4 text-white">
+        <div className="text-center mb-12 fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-3 text-white">
             My <span className="text-gradient">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient mx-auto"></div>
-          <p className="mt-6 text-gray-400 max-w-2xl mx-auto">
-            A selection of my recent work. Each project represents a unique challenge and solution in UI/UX design.
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+          <p className="mt-4 text-gray-400 max-w-2xl mx-auto text-lg">
+            A selection of my recent work, showcasing my skills in UI/UX design and development.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {projects.filter(p => p.link).map((project, index) => (
-            <div key={index} className="project-card fade-in overflow-hidden">
-              <div className="image-container">
-                <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} in a new tab`} className="block w-full h-full">
-                  <div className="relative w-full h-full">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 cursor-pointer"
-                      loading="lazy"
-                    />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {projects.map((project, index) => (
+            <div key={index} className="bg-gray-900/50 rounded-lg shadow-lg overflow-hidden flex flex-col fade-in transition-transform transform hover:-translate-y-2">
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                />
+              </a>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                <p className="text-gray-400 text-sm mb-4 flex-grow">{project.description}</p>
 
-                    <div className="project-overlay absolute inset-0 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                      <div>
-                        <p className="text-sm text-white font-semibold">{project.title}</p>
-                        <p className="text-xs text-gray-200">Click to open demo</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div className="content-container p-6">
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{project.description}</p>
-                  
-                  <div className="tech-tags">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-tag">{tech}</span>
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded-full">{tech}</span>
+                  ))}
                 </div>
                 
                 <a 
                   href={project.link} 
                   target="_blank" rel="noopener noreferrer"
-                  className="w-full text-center inline-block btn-primary text-sm font-semibold"
+                  className="mt-auto w-full text-center bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition text-sm font-semibold btn-primary"
                 >
                   View Project
                 </a>
